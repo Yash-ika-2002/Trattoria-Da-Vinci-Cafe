@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=WindSong:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: 40;
+      background-color: whitesmoke;
+      border-left: 100px solid gainsboro; 
+      border-right: 100px solid gainsboro; 
+      border-top: 50px solid gainsboro; 
+      box-sizing: border-box; 
+    }
+    
+
+    .banner {
+      position: relative;
+      margin: 20px 40px 0; /* top margin 20px, left and right margin 40px */
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      width: 100%;
+      padding: -30px;
+    }
+
+    .text-container {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+    }
+
+    .text1 {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: 'Sacramento', cursive;    }
+
+    .text2 {
+      font-size: 80px;
+      font-weight: bold;
+      font-family: 'Sacramento', cursive;    }
+
+    .curv{
+      font-family: 'Sacramento', cursive;     
+       font-style: bold;
+      font-size: 30px;
+    }
+    .curv1{
+      font-family: 'Sacramento', cursive;      font-style: bold;
+      font-size: 100px;
+    }
+
+    .container1{
+      margin-left: 15%;
+      margin-right: 40%;
+    }
+
+    p{
+      font-size: 25px;
+    }
+
+     .heading1>.curv{
+      font-size: 100px;
+      margin-left: 70px;
+    }
+
+    .container2{
+      margin-left: 250px;
+    }
+
+   .container2 ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+   .container2 li {
+      display: inline-flex;
+      margin-right: 30px; 
+      font-size: 25px;
+      transition: transform 0.3s ease-in-out; 
+      transform-origin: center bottom; 
+align-items: center;
+height: 40px;
+
+    }
+   .container2 li:hover{
+      font-size: 37px;
+      transform: scale(1.2); 
+      cursor: pointer;
+
+    }
+
+    .container3 {
+      display: flex;
+    }
+
+    .left-half {
+      flex: 0.5; 
+      overflow: hidden; 
+    }
+
+    .left-half img {
+      width: 80%;
+      height: 60%;
+      object-fit: cover; 
+      margin-left: 230px;
+    }
+
+    .right-half {
+      flex: 0.3; 
+      padding: 30px; 
+      box-sizing: border-box; 
+    }
+
+    .right-half .image-container {
+      margin-right: 20px; /* Add margin between images */
+      text-align: center;
+    }
+
+    .right-half ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: -30px;
+    }
+
+   .right-half li {
+      margin-bottom: 15px; 
+      border-bottom: 1px solid #ccc; 
+    }
+
+
+    .right-half li:hover{
+      color: goldenrod;
+    }
+
+    .right-half p{
+      font-size: 15px;
+      color: goldenrod;
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+    }
+
+
+    .process-wrapper {
+	margin:auto;
+	max-width:1080px;
+}
+
+#progress-bar-container {
+	position:relative;
+	width:90%;
+	margin:auto;
+	height:100px;
+	margin-top:65px;
+}
+
+#progress-bar-container ul {
+	padding:0;
+	margin:0;
+	padding-top:15px;
+	z-index:9999;
+	position:absolute;
+	width:100%;
+	margin-top:-40px
+}
+
+#progress-bar-container li:before {
+	content:" ";
+	display:block;
+	margin:auto;
+	width:30px;
+	height:30px;
+	border-radius:50%;
+	border:solid 2px #aaa;
+	transition:all ease 0.3s;
+     
+}
+
+#progress-bar-container li.active:before, #progress-bar-container li:hover:before {
+	border:solid 2px #fff;
+       	 
+	background: linear-gradient(to right, goldenrod 0%,#fff 100%); 
+}
+
+#progress-bar-container li {
+	list-style:none;
+	float:left;
+	width:20%;
+	text-align:center;
+	color:#aaa;
+	text-transform:uppercase;
+	font-size:11px;
+	cursor:pointer;
+	font-weight:700;
+	transition:all ease 0.2s;
+	vertical-align:bottom;
+	height:60px;
+	position:relative;
+}
+
+#progress-bar-container li .step-inner {
+	position:absolute;
+	width:100%;
+	bottom:0;
+    font-size: 14px;
+}
+
+#progress-bar-container li.active, #progress-bar-container li:hover {
+	color:#444;
+}
+
+#progress-bar-container li:after {
+	content:" ";
+	display:block;
+	width:6px;
+	height:6px;
+	background:#777;
+	margin:auto;
+	border:solid 7px #fff;
+	border-radius:50%;
+	margin-top:40px;
+	box-shadow:0 2px 13px -1px rgba(0,0,0,0.3);
+	transition:all ease 0.2s;
+     
+}
+
+#progress-bar-container li:hover:after {
+	background:#555;
+}
+
+#progress-bar-container li.active:after {
+	background:#207893;
+}
+
+#progress-bar-container #line {
+	width:80%;
+	margin:auto;
+	background: #eee;
+	height:6px;
+	position:absolute;
+	left:10%;
+	top:57px;
+	z-index:1;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-bar-container #line-progress {
+	content:" ";
+	width:3%;
+	height:100%;
+	background: #207893;	 
+	background: linear-gradient(to right, #207893 0%,#2ea3b7 100%); 
+	position:absolute;
+	z-index:2;
+	border-radius:50px;
+	transition:all ease 0.9s;
+}
+
+#progress-content-section {
+	width:90%;
+	margin: auto;
+	background: #f3f3f3;
+	border-radius: 4px;
+}
+
+#progress-content-section .section-content {
+	padding:30px 40px;
+	text-align:center;
+}
+
+#progress-content-section .section-content h2 {
+	font-size:17px;
+	text-transform:uppercase;
+	color:#333;
+	letter-spacing:1px;
+}
+
+#progress-content-section .section-content p {
+	font-size:16px;
+	line-height:1.8em;
+	color:#777;
+}
+
+#progress-content-section .section-content {
+	display:none;
+	animation: FadeInUp 700ms ease 1;
+	animation-fill-mode:forwards;
+	transform:translateY(15px);
+	opacity:0;
+}
+
+#progress-content-section .section-content.active {
+	display:block;
+}
+
+@keyframes FadeInUp {
+	0% {
+		transform:translateY(15px);
+		opacity:0;
+	}
+	
+	100% {
+		transform:translateY(0px);
+		opacity:1;
+	}
+}
+
+   .process-wrapper img{
+    height: 300px;
+    width: 200px;
+   } 
+
+
+   .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .custom-image {
+      width: 80%; /* Set the images to 30% of their original size */
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .image-text {
+      margin-top: 10px;
+      text-align: left;
+      margin-left: 30px;
+    }
+
+    .image-subtext{
+      margin-top: 5px;
+      text-align: left;
+      margin-left: 30px;
+      color: goldenrod;
+      font-size: 14px;
+    }
+
+    .event-image {
+      flex: 0.1; 
+      padding: 5px; 
+      box-sizing: border-box; 
+      display: flex; /* Set display to flex */
+      align-items: right; /* Center content vertically */
+      margin-left: 200px;
+    }
+
+    footer {
+      background-color: #cab07c;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-column {
+      flex: 1;
+    }
+
+    .footer-column h1 {
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 60px;
+      margin-top: 50px;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+      text-decoration: white;
+
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-contact p {
+      margin-right: 10px;
+      font-size: 15px;
+    }
+
+    .footer-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-icons img {
+      margin-top: 20px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .footer-icons img:hover{
+      width: 35px;
+      height: 35px;
+    }
+
+    footer h1{
+      font-family: 'Sacramento', cursive;    }
+
+    footer a{
+      color: white;
+    }
+
+    .newsletter-column p{
+      margin-left: 300px;
+      font-size: 20px;
+    }
+
+    .newsletter-column form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .newsletter-column label,
+    .newsletter-column input,
+    .newsletter-column button {
+      margin: 5px;
+    }
+
+    .newsletter-column label {
+      font-weight: bold;
+    }
+
+    .newsletter-column input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px; /* Adjust the width as needed */
+      box-sizing: border-box;
+    }
+
+    .newsletter-column button {
+      padding: 10px;
+      background-color: goldenrod; /* Your desired background color */
+      color: #fff; /* Your desired text color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 500px;
+    }
+
+    .newsletter-column button:hover {
+      background-color: #555; /* Change the color on hover if desired */
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="bg.jpg" alt="Banner Image">
+  <div class="text-container">
+    <br>
+    <br>
+    <div class="text1">Trattoria Da Vinci</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text2">Through The Ages</div>
+   
+
+  </div>
+</div>
+
+<div class="container1">
+  <p>At <span class="curv">Trattoria Da Vinci</span>, we pride ourselves on offering an unforgettable dining experience that embodies the essence of Italy. Nestled in <span class="curv">the heart of Naples</span>, our restaurant is a haven for aficionados of authentic Italian cuisine.</p>
+</div>
+<br>
+<h1 class="heading1"><span class="curv">M</span>enu</h1>
+
+<div class="container2">
+  <ul>
+    <li>Main</li>
+    <li>Pizza</li>
+    <li>Lunch</li>
+    <li>Salads</li>
+    <li>Drinks</li><br>
+    <li>Desserts</li>
+    <li>Appetizers</li>
+    <li>Bar</li>
+
+  </ul>
+</div>
+<div class="container3">
+<div class="left-half">
+  <img src="pasta.jpg">
+</div>
+
+<div class="right-half">
+  <ul>
+    <li>Ragu alla Bolognese</li>
+    <li>Spaghetti Carbonara</li>
+    <li>Piccata di Pollo</li>
+    <li>Osso Buco</li>
+    <li>Melanzane alla Parmigiana</li>
+    <li>Chicken Marsala</li>
+    <li>Risotto ai Frutti di Mare</li>
+    <li>Ragu di Agnello</li>
+    <li>Veal Saltimbocca</li>
+    <li>Linguine alle Vongole</li>
+    <li>Porchetta</li>
+    
+  </ul>
+  <p>+ See All Menu</p>
+</div>
+</div>
+
+<h1 class="heading1"><span class="curv">O</span>ur <span class="curv1">S</span>tory</h1>
+<div class="process-wrapper">
+  <div id="progress-bar-container">
+    <ul>
+      <li class="step step01 active"><div class="step-inner">1967</div></li>
+      <li class="step step02"><div class="step-inner">1975</div></li>
+      <li class="step step03"><div class="step-inner">1982</div></li>
+      <li class="step step04"><div class="step-inner">1990</div></li>
+      <li class="step step05"><div class="step-inner">Present</div></li>
+    </ul>
+    
+    <div id="line">
+      <div id="line-progress"></div>
+    </div>
+  </div>
+  
+  <div id="progress-content-section">
+    <div class="section-content discovery active">
+      <p>In Naples, where history meets the tranquil lakeside, my vision unfolds—an elegant Italian restaurant. Inspired by the city's rich culture, each dish narrates a story in a haven of sophistication. By the water's edge, this culinary gem invites patrons to savor Naples' essence, offering an immersive and unforgettable dining experience. Welcome to a lakeside retreat, where every bite celebrates the vibrant flavors of Italy, and every moment is an ode to la dolce vita.</p>
+  <img src="time1.jpeg">
+    </div>
+    
+ 
+    </div>
+  </div>
+
+  <h1 class="heading1"><span class="curv">E</span>vents</h1>
+
+  <div class="event-image">
+
+  <div class="image-container">
+    <img src="event1.jpeg" alt="Image 1" class="custom-image">
+    <div class="image-text">Jazz Music Concert</div>
+    <div class="image-subtext">20.08</div>
+
+  </div>
+  
+  <div class="image-container">
+    <img src="event2.jpeg" alt="Image 2" class="custom-image">
+    <div class="image-text">Romantic Evening</div>
+    <div class="image-subtext">1.09</div>
+
+  </div>
+  
+  <div class="image-container">
+    <img src="event3.jpeg" alt="Image 3" class="custom-image">
+    <div class="image-text">Feast Of Saint Gennaro</div>
+    <div class="image-subtext">19.09</div>
+
+  </div>
+ </div>
+ <br>
+ <br>
+
+
+ <div class="newsletter-column">
+  <h1 class="heading1"><span class="curv">S</span>ubscribe to our <span class="curv1">N</span>ewsletter</h1>
+  <p>Stay updated with our latest offerings and promotions.</p>
+  <form action="#" method="post">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+  </form>
+ 
+  <button type="submit">Subscribe</button>
+
+</div>
+
+<br>
+<br>
+ <footer>
+  <div class="footer-column">
+    <h1>Trattoria Da Vinci</h1>
+  </div>
+
+  <div class="footer-column">
+    <ul>
+      <li><a href="#"> Reservation</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#"> Our Story</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Interior</a></li>    </ul>
+  </div>
+
+  <div class="footer-column">
+    <div class="footer-contact">
+      <p>Traversa II Privata Fumaroli, 80146 <br>Napoli NA, Italy</p>
+    </div>
+    <br>
+    <div class="footer-contact">
+      <p>Phone: +123 456 789</p>
+    </div>
+
+
+    <div class="footer-icons">
+      <!-- Add your icons with appropriate URLs -->
+      <img src="fb.png" alt="Icon 1">
+      <img src="twitter.png" alt="Icon 2">
+      <img src="instagram.png" alt="Icon 3">
+      <img src="google.png" alt="Icon 4">
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
